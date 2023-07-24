@@ -11,12 +11,15 @@ describe("enqueue", function() {
     expect(queue.enqueue(10)).toBe(undefined);
     expect(queue.first.val).toBe(10);
     expect(queue.last.val).toBe(10);
+    expect(queue.size).toBe(1);
     queue.enqueue(100);
     expect(queue.first.val).toBe(10);
     expect(queue.last.val).toBe(100);
+    expect(queue.size).toBe(2)
     queue.enqueue(1000);
     expect(queue.first.val).toBe(10);
     expect(queue.last.val).toBe(1000);
+    expect(queue.size).toBe(3);
   });
 });
 
@@ -35,7 +38,7 @@ describe("dequeue", function() {
 
   it("throws an error if the queue is empty", function() {
     expect(() => queue.dequeue()).toThrow(Error);
-  });
+  }); 
 });
 
 describe("peek", function() {
@@ -55,5 +58,14 @@ describe("isEmpty", function() {
   it("returns false for nonempty queues", function() {
     queue.enqueue(3);
     expect(queue.isEmpty()).toBe(false);
+  });
+});
+
+describe("clearAll", function(){
+  it("release all nodes and set this to be empty", function(){
+    queue.enqueue(10);
+    queue.enqueue(100);
+    queue.clearAll();
+    expect(queue.isEmpty()).toBe(true);
   });
 });
