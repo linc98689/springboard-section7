@@ -14,11 +14,7 @@ class CircularArray{
      * then add new data to the end , and copy to this.data
     */
     addItem(val){
-        let tmp = [];
-        for(let i of [...Array(this.length()).keys()]){
-            tmp.push(this.getByIndex(i));
-        }
-        this.data = [...tmp, val];
+        this.data.push(val);
         this.start = 0;
     }
 

@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+.App-nav{
+ margin-top:10px;
+ margin-bottom:20px;
+ display:flex;
+ justify-content: space-between;
+ align-self: center;
+ flex-wrap: wrap;
+ background-color: #e4e4ec;
+ padding:8px;
+}
+
+.link{
+  padding-left: 5px;
+  text-decoration: none;
+}
+
+a.active{
+  font-weight: bold;
+  color: black;
+}
+
+a.home{
+  font-size: 1.2rem;
+}
+
+.nav-home{
+  flex-grow: 1;
+}
+.nav-items{
+  flex-grow: 3;
+}
+
+.background-image{
+  width: 80vw;
+  margin:auto;
+  height:80vh;
+  background-size:contain;
+  background-position:top;
+  background-repeat: repeat;
+
+}
