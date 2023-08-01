@@ -6,19 +6,28 @@ import SnickerBar from "./SnickerBar";
 import ClifBar from "./ClifBar";
 import PopTart from "./PopTart";
 
-function App() {
+function App({routes}) {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<VendorMachine />} />
+          {routes.map((route, i)=> (
+            <Route path={route.path} element={<route.element />} key={i}></Route>
+          ))}
+            {/* <Route path="/" element={<VendorMachine />} />
             <Route path="/snickers" element={<SnickerBar />}></Route>
             <Route path="/clif" element={<ClifBar />}></Route>
-            <Route path="/poptart" element={<PopTart />}></Route>
+            <Route path="/poptart" element={<PopTart />}></Route> */}
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
 
+App.defaultProps = {routes:[
+  {path:"/", componentName: VendorMachine},
+  {path:"/snikers", componentName: SnickerBar},
+  {path:"/clif", componentName: ClifBar},
+  {path:"/poptart", componentName: PopTart},
+]};
 export default App;
