@@ -14,10 +14,6 @@ function App({routes}) {
           {routes.map((route, i)=> (
             <Route path={route.path} element={<route.element />} key={i}></Route>
           ))}
-            {/* <Route path="/" element={<VendorMachine />} />
-            <Route path="/snickers" element={<SnickerBar />}></Route>
-            <Route path="/clif" element={<ClifBar />}></Route>
-            <Route path="/poptart" element={<PopTart />}></Route> */}
         </Routes>
       </BrowserRouter>
     </div>
