@@ -1,0 +1,29 @@
+.Nav-container{
+    margin-top:10px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content: space-between;
+    align-self: center;
+    flex-wrap: wrap;
+    background-color: #e4e4ec;
+    padding:8px;
+}
+
+.Nav-link{
+    padding-left: 8px;
+    text-decoration: none;
+}
+
+a.active{
+    color:#040450;
+    font-weight: bold;
+}
+
+.Nav-head{
+    font-size: 1.3em;
+    flex-grow: 1;
+
+}
+.Nav-items{
+    flex-grow: 3;
+}
