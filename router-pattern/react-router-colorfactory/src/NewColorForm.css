@@ -6,10 +6,29 @@ input, label, form > button, h2{
     display:block;
     margin-left:30px;
     margin-bottom:10px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 h2{
     margin-left: 15px;
     font-size: 2rem;
+}
+
+form > button{
+    background-color: rgb(38, 7, 213);
+    color:aliceblue;
+    border:none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-top:20px;
+    transition: all 0.2s;
+
+}
+form > button:hover{
+    background-color:white;
+    outline: 1px solid #140279;
+    outline-offset: 1px;
+    color:  rgb(38, 7, 213);
+    font-weight:bold;
+    font-size:1.4em;
 }

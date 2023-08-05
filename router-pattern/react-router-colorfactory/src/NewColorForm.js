@@ -15,6 +15,9 @@ const NewColorForm = ({addColor})=>{
 
     const handleSubmit = (evt) =>{
         evt.preventDefault();
+        if(formData === {} || formData.name === undefined 
+            || formData.name==="" || formData.value === undefined)
+            return;
         addColor(formData);
         navigate("/colors/");
     };
