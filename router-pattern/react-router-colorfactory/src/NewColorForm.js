@@ -1,3 +1,5 @@
+import "./NewColorForm.css";
+
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
@@ -23,8 +25,9 @@ const NewColorForm = ({addColor})=>{
             <form>
                 <input type="text" name="name" placeholder="color name"
                 onChange={handleChange} />
+                <label>Choose color: </label>
                 <input type="color" name="value" onChange={handleChange} />
-                <button type="submit" onSubmit={handleSubmit}>Make It</button>
+                <button type="submit" onClick={handleSubmit}>Make It</button>
             </form>
         </div>
     );

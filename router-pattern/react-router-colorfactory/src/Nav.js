@@ -5,8 +5,8 @@ import "./Nav.css";
 
 const Nav = ({colors})=>{
     return (
-        <div>
-            <h2>Nav Bar</h2>
+        <div className="Nav">
+            <h2 className="Nav-title">Menu</h2>
             <ul>
                 <li className="Nav-li"><NavLink to="/colors/new" >Add a new color</NavLink></li>
                 <li className="Nav-li"><NavLink to="/colors/" >all colors</NavLink></li>

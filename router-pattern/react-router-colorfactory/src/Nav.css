@@ -1,3 +1,23 @@
 .Nav-li{
     list-style-type: none;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.Nav{
+    /* border: 1px solid rgb(134, 132, 132); */
+    box-shadow: 0px 0px 2px rgb(140, 139, 139);
+    border-radius: 3px;
+    background-color: rgb(243, 243, 245);
+    text-align: left;
+    width:98%;
+    margin: 10px;
+}
+.Nav-title{
+    margin-left: 15px;
+    font-size: 2rem;
+}
+
+a{
+    text-decoration: none;
+    color:rgb(48, 11, 2)
 }
