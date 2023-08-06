@@ -1,0 +1,7 @@
+input, select, form > button{
+    display:block;
+    margin:10px auto;
+}
+option{
+  padding: 2px 5px;
+}
