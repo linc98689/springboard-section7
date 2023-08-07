@@ -25,7 +25,7 @@ const JokeList = ({numJokesToGet = 5})=> {
     try {
       // load jokes one at a time, adding not-yet-seen jokes
       let newJokes = [];
-      let seenJokes = new Set();
+      let seenJokes = new Set(jokes.filter(j => j.locked).map(j => j.id));
 
       while (newJokes.length < numJokesToGet) {
         let res = await axios.get("https://icanhazdadjoke.com", {
@@ -35,12 +35,16 @@ const JokeList = ({numJokesToGet = 5})=> {
 
         if (!seenJokes.has(joke.id)) {
           seenJokes.add(joke.id);
-          newJokes.push({ ...joke, votes: 0 });
+          newJokes.push({ ...joke, votes: 0 , locked:false});
         } else {
           console.log("duplicate found!");
         }
       }
-      setJokes(data => newJokes);
+
+      setJokes(data => {
+        let lockedJokes = data.filter(j => j.locked);
+        return [...lockedJokes, ...newJokes].sort((a, b) => b.votes - a.votes)});
+
       setIsLoading(data => false);
     } catch (err) {
       console.error(err);
@@ -77,6 +81,12 @@ const JokeList = ({numJokesToGet = 5})=> {
       return sortedJokes;    
     })};
 
+  /** lock */
+  const lock = (id)=>{
+    setJokes(data => data.map(j => j.id === id? {...j, locked: !j.locked}: j));
+  };
+
+
   /** handleResetVotes */
   const handleResetVotes = (evt)=>{
     setJokes(data => data.map(e => ({...e, votes:0}))
@@ -109,6 +119,8 @@ const JokeList = ({numJokesToGet = 5})=> {
             id={j.id} 
             votes={j.votes}
             vote={vote}
+            lock={lock}
+            locked={j.locked}
           />
         ))}
       </div>

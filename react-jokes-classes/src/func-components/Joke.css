@@ -37,7 +37,3 @@ div.Joke-text > button:hover{
   color:rgb(64, 23, 15);
   margin-left:0.5em;
 }
-
-.Joke-icon-hidden{
-  opacity: 0;
-}

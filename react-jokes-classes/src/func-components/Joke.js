@@ -3,10 +3,12 @@ import "./Joke.css";
 
 /** A single joke, along with vote up/down buttons. */
 
-const Joke = ({ id, vote, votes, text } ) => {
+const Joke = ({ id, vote, votes,lock, locked, text } ) => {
     const handleDoubleClick = (evt)=>{
-      if(evt.detail === 2)
-        console.log("triggered");
+
+      if(evt.detail === 2){
+        lock(id);  
+      }
     };
 
     return (
@@ -24,7 +26,8 @@ const Joke = ({ id, vote, votes, text } ) => {
         </div>
 
         <div className="Joke-text"><button onClick={handleDoubleClick}>{text}</button>
-        <span className="Joke-icon Joke-icon-hidden"><i className="fas fa-lock" ></i></span></div>
+        {locked && <span className="Joke-icon"><i className="fas fa-lock" ></i></span>}
+        </div>
       </div>
     );
   }

@@ -12,6 +12,13 @@
   border-radius: 0.5em;
   background-color: tomato;
   color: white;
+  padding: 0.4em;
+}
+
+.JokeList-getmore:hover{
+  background-color: rgb(175, 66, 47);
+  outline: 1px solid white;
+  outline-offset: -2px;
 }
 
 .JokeList-getmore:disabled , .JokeList-resetVotes:disabled{
@@ -30,10 +37,15 @@
   padding: 5px 8px;
 }
 
+.JokeList-resetVotes:hover{
+  outline: 1px solid white;
+  outline-offset: 2px;
+  box-shadow: 0 0 4px rgb(49, 48, 48);
+}
+
+
 .JokeList-instruction{
-  /* margin-left: 1em; */
   padding: 0.5em;
-  /* color: white; */
   background-color: rgb(242, 223, 223);
   background: linear-gradient(90deg,rgb(242, 223, 223), white );
 }
