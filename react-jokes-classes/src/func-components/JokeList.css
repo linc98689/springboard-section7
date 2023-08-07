@@ -7,14 +7,34 @@
 }
 
 .JokeList-getmore {
-  margin: 1em 0;
+  margin: 1em 1em;
   font-size: 150%;
   border-radius: 0.5em;
   background-color: tomato;
   color: white;
 }
 
-.JokeList-getmore:disabled {
+.JokeList-getmore:disabled , .JokeList-resetVotes:disabled{
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.JokeList-resetVotes{
+  margin: 1em 1em;
+  font-size: 120%;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1px  rgb(84, 32, 22);
+  border:none;
+  background-color: white;
+  color: tomato;
+  padding: 5px 8px;
+}
+
+.JokeList-instruction{
+  /* margin-left: 1em; */
+  padding: 0.5em;
+  /* color: white; */
+  background-color: rgb(242, 223, 223);
+  background: linear-gradient(90deg,rgb(242, 223, 223), white );
+}
+

@@ -21,3 +21,23 @@
   display: inline-block;
   width: 500px;
 }
+div.Joke-text > button{
+  border:none;
+  background-color:white;
+  text-align: left;
+}
+
+div.Joke-text > button:hover{
+  background-color: black;
+  color:white;
+}
+
+.Joke-icon{
+  font-size: 0.7em;
+  color:rgb(64, 23, 15);
+  margin-left:0.5em;
+}
+
+.Joke-icon-hidden{
+  opacity: 0;
+}

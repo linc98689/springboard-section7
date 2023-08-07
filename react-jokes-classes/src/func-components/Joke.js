@@ -4,6 +4,11 @@ import "./Joke.css";
 /** A single joke, along with vote up/down buttons. */
 
 const Joke = ({ id, vote, votes, text } ) => {
+    const handleDoubleClick = (evt)=>{
+      if(evt.detail === 2)
+        console.log("triggered");
+    };
+
     return (
       <div className="Joke">
         <div className="Joke-votearea">
@@ -18,7 +23,8 @@ const Joke = ({ id, vote, votes, text } ) => {
           {votes}
         </div>
 
-        <div className="Joke-text">{text}</div>
+        <div className="Joke-text"><button onClick={handleDoubleClick}>{text}</button>
+        <span className="Joke-icon Joke-icon-hidden"><i className="fas fa-lock" ></i></span></div>
       </div>
     );
   }

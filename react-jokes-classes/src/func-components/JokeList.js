@@ -5,10 +5,20 @@ import "./JokeList.css";
 
 /** List of jokes. */
 
+
+
 const JokeList = ({numJokesToGet = 5})=> {
-  const [jokes, setJokes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  // const [doesNeedFetch, setDoesNeedFetch ] = useState(true);
+  /** fetch jokes from localStorage */
+  const fetchJokesFromLocal = () => {
+    let savedJokes = localStorage.getItem("jokes");
+    if (savedJokes === null)
+      return [];
+     else
+       return JSON.parse(savedJokes);
+ };
+
+  const [jokes, setJokes] = useState(fetchJokesFromLocal());
+  const [isLoading, setIsLoading] = useState(false);
 
   const  getJokes = async ()=> {
     setIsLoading(data => true);
@@ -45,8 +55,13 @@ const JokeList = ({numJokesToGet = 5})=> {
 
   // useEffect
   useEffect(()=>{
-    getJokes();
-  }, []);
+    /** save jokes to localStorage */
+    const saveJokesToLocal = () =>{
+      localStorage.setItem("jokes", JSON.stringify(jokes));
+    };
+
+    saveJokesToLocal();
+  }, [jokes]);
 
   
 
@@ -57,10 +72,16 @@ const JokeList = ({numJokesToGet = 5})=> {
        let tmp = jokes.map(j =>
         j.id === id ? { ...j, votes: j.votes + delta } : j);
 
+        // sort by votes in descending order before rendering
        let sortedJokes = [...tmp].sort((a, b) => b.votes - a.votes);
       return sortedJokes;    
     })};
 
+  /** handleResetVotes */
+  const handleResetVotes = (evt)=>{
+    setJokes(data => data.map(e => ({...e, votes:0}))
+    );
+  }
   /* render: either loading spinner or list of sorted jokes. */
 
   if (isLoading) {
@@ -79,12 +100,13 @@ const JokeList = ({numJokesToGet = 5})=> {
         >
           Get New Jokes
         </button>
-
+        <button className="JokeList-resetVotes" onClick={handleResetVotes}>Reset Votes</button>
+        <p className="JokeList-instruction">Double click a joke to lock/unlock </p>
         {jokes.map(j => (
           <Joke
             text={j.joke}
             key={j.id}
-            id={j.id}
+            id={j.id} 
             votes={j.votes}
             vote={vote}
           />
